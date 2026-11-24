@@ -1,0 +1,58 @@
+[
+  {
+    "file": "php_4_3.dimacs",
+    "status": "UNSAT",
+    "slow": false,
+    "vars": 12,
+    "clauses": 22,
+    "comment": "PHP(4,3) pigeonhole CNF - classic UNSAT family [GAREYJOHNSON]"
+  },
+  {
+    "file": "php_5_4.dimacs",
+    "status": "UNSAT",
+    "slow": true,
+    "vars": 20,
+    "clauses": 45,
+    "comment": "PHP(5,4) pigeonhole CNF - classic UNSAT family [GAREYJOHNSON]"
+  },
+  {
+    "file": "rand3sat_r12.dimacs",
+    "status": "UNSAT",
+    "slow": false,
+    "vars": 12,
+    "clauses": 51,
+    "comment": "random 3-SAT n=12 m=51 ratio=4.26 seed=1"
+  },
+  {
+    "file": "rand3sat_r13.dimacs",
+    "status": "UNSAT",
+    "slow": false,
+    "vars": 13,
+    "clauses": 55,
+    "comment": "random 3-SAT n=13 m=55 ratio=4.26 seed=2"
+  },
+  {
+    "file": "rand3sat_r14.dimacs",
+    "status": "SAT",
+    "slow": false,
+    "vars": 14,
+    "clauses": 60,
+    "comment": "random 3-SAT n=14 m=60 ratio=4.26 seed=3"
+  },
+  {
+    "file": "rand3sat_r15.dimacs",
+    "status": "SAT",
+    "slow": false,
+    "vars": 15,
+    "clauses": 64,
+    "comment": "random 3-SAT n=15 m=64 ratio=4.26 seed=7"
+  },
+  {
+    "file": "rand3sat_r16.dimacs",
+    "status": "SAT",
+    "slow": false,
+    "vars": 16,
+    "clauses": 68,
+    "comment": "random 3-SAT n=16 m=68 ratio=4.26 seed=11"
+  }
+]

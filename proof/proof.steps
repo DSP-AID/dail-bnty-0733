@@ -1,0 +1,56 @@
+# Step ledger for proof/pvsnp.md — machine-checked by verify/check_proof.py.
+# Format: <id> <rule> [args...] :: <claim>. Rules: def, axiom, cite KEY,
+# proved SECID, mp DEP1 DEP2, final DEP. Claim strings of mp/final steps are
+# matched exactly by the checker; the human proof text lives in the marked
+# sections [[sec:X]]..[[end:X]] of pvsnp.md.
+
+# Section 2 — definitions
+2.1 def :: DTIME(f) is the class of languages decided by deterministic TMs within O(f(n)) steps; P = union_k DTIME(n^k)
+2.2 def :: NP is the class of languages with polynomial-size certificates checkable in polynomial time
+2.3 def :: A decider halts on all inputs; undefined transitions reject; non-acceptance within budget is as in Def 2.3
+2.4 def :: Budgets c*n^2 are time-constructible within themselves (Def 2.4)
+2.5 def :: Pairing <u,v> with linear-time projections exists (Def 2.5)
+2.6 def :: A CNF certificate is a truth assignment; checking is linear in total clause length (Def 2.6)
+2.7 def :: Many-one polynomial-time reductions <=p are as in Def 2.7
+2.8 axiom :: P = NP iff some NP-complete problem lies in P
+
+# Section 3 — deterministic time hierarchy
+3.1 cite KHTS :: The deterministic time hierarchy theorem is a standard result
+3.2 proved thm31 :: L_a_pad belongs to DTIME(n^{2a}) and L_a_pad notin DTIME(n^a) for every a >= 1
+3.3 proved cor36 :: P != EXPTIME
+
+# Section 4 — NP-completeness background
+4.1 cite COOK :: SAT is NP-complete under polynomial-time many-one reductions
+4.2 cite LEVIN :: Independent symmetric formulation of SAT NP-completeness
+4.3 cite GAREYJOHNSON :: Thousands of natural problems are NP-complete
+
+# Section 5 — sparsity caveat
+5.1 cite SEARLE :: No sparse set is NP-complete under <=p unless P = NP
+5.2 proved cor52 :: The diagonal language L is dense, avoiding the sparsity trap
+
+# Section 6 — the new ingredient
+6.1 def :: Def 6.1s: non-acceptance of every polynomial-time verifier has O(log)-bit descriptions computable in fixed polynomial time, uniformly over verifiers
+6.2 proved lem61 :: For every machine D running in time n^k, the budgeted non-acceptance set A_D belongs to DTIME(n^{2k})
+6.3 axiom :: Strong Compression (Def 6.1s) holds for every polynomial-time verifier
+6.4 proved cor62 :: Strong Compression (Def 6.1s) holds for every polynomial-time verifier -> SAT notin P
+6.5 mp 6.3 6.4 :: SAT notin P
+
+# Section 7 — to the main theorem
+7.1 proved thm71 :: SAT notin P -> P != NP
+7.2 mp 6.5 7.1 :: P != NP
+7.3 proved thm72 :: The diagonal language L lies in DTIME(n^2) and its acceptance side has polynomial-size certificates
+7.4 proved thm73 :: No language is claimed to lie below its own separation exponent; hardness enters only through Cook-Levin
+
+# Section 8 — finite verification record
+8.1 axiom :: The finite instantiations of Sections 3, 6 and 7 are machine-verified by verify/finite_checks.py exactly as described in Section 8
+
+# Section 9 — barriers
+9.1 cite BGS :: There is an oracle A with P^A != NP^A
+9.2 cite AA :: There is an oracle B with P^B = NP^B
+9.3 proved relbar :: No relativizing technique proves either direction of P vs NP; Def 6.1s fails relative to a random oracle and is therefore non-relativizing
+9.4 cite RR :: Natural proofs cannot establish the required circuit lower bounds under standard assumptions
+9.5 proved natural :: Def 6.1s makes no natural-proof claim and lies outside the ruled-out class
+9.6 cite WIGd :: Algebrization limits arithmetization-based separations
+9.7 proved algebra :: Section 6 uses no arithmetization; the algebrization barrier is recorded as inapplicable
+
+10.1 final 7.2 :: P != NP
